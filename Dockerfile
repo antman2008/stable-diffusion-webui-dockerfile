@@ -7,7 +7,7 @@ RUN pip install install -U -I --no-deps xformers==0.0.20
 RUN mkdir -p /opt/ml/code
 WORKDIR /opt/ml/code
 
-RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git /opt/ml/code && git checkout tags/v1.5.0 -b v1.5.0
+RUN git clone -b v1.5.0 --single-branch https://github.com/AUTOMATIC1111/stable-diffusion-webui.git /opt/ml/code
 RUN python launch.py -f --exit --skip-torch-cuda-test
 RUN pip install -U pytorch_lightning==1.6.5 pydantic==1.10.11
 
